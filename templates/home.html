@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - User Registration & Login</title>
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='img.jpg') }}");
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .links {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .links a {
+            width: 200px;
+            margin: 10px 0;
+        }
+        .links button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+        }
+        .register {
+            background-color: #007BFF;
+        }
+        .register:hover {
+            background-color: #0056b3;
+        }
+        .login {
+            background-color: #FF5733;
+        }
+        .login:hover {
+            background-color: #C70039;
+        }
+    </style>
+</head>
+<body>
+    <h1>REAL AND FAKE IMAGE CLASSIFICATION USING DEEP LEARNING</h1>
+    
+    <div class="links">
+        <a href="register"><button class="register">Register</button></a>
+        <a href="login"><button class="login">Login</button></a>
+    </div>
+</body>
+</html>

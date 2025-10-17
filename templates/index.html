@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake vs Real Image Classifier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-image: url("{{ url_for('static', filename='img.jpg') }}");
+            background-size: cover;
+            color: white;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        input[type="file"], button {
+            margin: 20px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        img {
+            max-width: 400px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        .result {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .confidence {
+            color: #ddd;
+            font-size: 18px;
+        }
+        .logout {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: red;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="/logout" class="logout">Logout</a>
+    <h1>Fake vs Real Image Classifier</h1>
+    
+    <div class="container">
+        <form action="/index" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <br>
+            <button type="submit">Upload & Classify</button>
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+            <p>Prediction: <strong>{{ prediction }}</strong></p>
+            <p class="confidence">Confidence: {{ confidence }}%</p>
+            <p class="explanation"><strong>Reason:</strong> {{ reason }}</p>
+            <img src="{{ file_path }}" alt="Uploaded Image">
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
